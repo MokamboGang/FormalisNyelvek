@@ -4,17 +4,15 @@
 
 #include "cxxopts.hpp"
 
-// Itt olvassuk be a saját feladatainkat:
 #include "problems/dfa.h"
-#include "problems/det.h"   // <--- Ezt most adtuk hozzá
+#include "problems/det.h"
 
 int runProblem(int argc, char* argv[]) {
 
     std::vector<Problem *> problems;
 
-    // Mindkét feladatunk regisztrálva van:
     problems.push_back(new DFAProblem());
-    problems.push_back(new DetProblem());   // <--- És ide is bekerült
+    problems.push_back(new DetProblem());
 
     cxxopts::Options options("project", "Run the specific problem");
 
