@@ -4,13 +4,17 @@
 
 #include "cxxopts.hpp"
 
-// Add your own problems here
-#include "problems/sum.hpp"
+// Itt olvassuk be a saját feladatainkat:
+#include "problems/dfa.h"
+#include "problems/det.h"   // <--- Ezt most adtuk hozzá
 
 int runProblem(int argc, char* argv[]) {
-    // Add your own problems here
+
     std::vector<Problem *> problems;
-    problems.push_back(new SumProblem());
+
+    // Mindkét feladatunk regisztrálva van:
+    problems.push_back(new DFAProblem());
+    problems.push_back(new DetProblem());   // <--- És ide is bekerült
 
     cxxopts::Options options("project", "Run the specific problem");
 
@@ -18,7 +22,7 @@ int runProblem(int argc, char* argv[]) {
         ("i,input", "Input file name", cxxopts::value<std::string>())
         ("o,output", "Output file name", cxxopts::value<std::string>())
         ("h,help", "Print usage");
-    
+
     for (Problem *p : problems) {
         p->initialize_parser(options);
     }
@@ -37,6 +41,7 @@ int runProblem(int argc, char* argv[]) {
 }
 
 int main(int argc, char* argv[]) {
+
     try {
         return runProblem(argc, argv);
     } catch (const cxxopts::exceptions::exception &e) {
