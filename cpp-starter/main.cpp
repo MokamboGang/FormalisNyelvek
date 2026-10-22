@@ -13,7 +13,6 @@ int runProblem(int argc, char* argv[]) {
 
     problems.push_back(new DFAProblem());
     problems.push_back(new DetProblem());
-
     cxxopts::Options options("project", "Run the specific problem");
 
     options.add_options()
