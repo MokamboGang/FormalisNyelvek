@@ -4,8 +4,8 @@
 
 #include "cxxopts.hpp"
 
-#include "problems/dfa.h"
 #include "problems/det.h"
+#include "problems/dfa.h"
 
 int runProblem(int argc, char* argv[]) {
 
