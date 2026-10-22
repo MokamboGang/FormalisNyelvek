@@ -3,16 +3,14 @@
 #include <vector>
 
 #include "cxxopts.hpp"
-
-#include "problems/det.h"
 #include "problems/dfa.h"
+#include "problems/det.h"
 
 int runProblem(int argc, char* argv[]) {
-
     std::vector<Problem *> problems;
-
     problems.push_back(new DFAProblem());
     problems.push_back(new DetProblem());
+
     cxxopts::Options options("project", "Run the specific problem");
 
     options.add_options()
@@ -38,7 +36,6 @@ int runProblem(int argc, char* argv[]) {
 }
 
 int main(int argc, char* argv[]) {
-
     try {
         return runProblem(argc, argv);
     } catch (const cxxopts::exceptions::exception &e) {
