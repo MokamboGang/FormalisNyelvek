@@ -5,11 +5,13 @@
 #include "cxxopts.hpp"
 #include "problems/dfa.h"
 #include "problems/det.h"
+#include "problems/mini.h"
 
 int runProblem(int argc, char* argv[]) {
     std::vector<Problem *> problems;
     problems.push_back(new DFAProblem());
     problems.push_back(new DetProblem());
+    problems.push_back(new MiniProblem());
 
     cxxopts::Options options("project", "Run the specific problem");
 
